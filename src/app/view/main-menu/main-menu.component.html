@@ -1,0 +1,137 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 content"style="padding:0;margin:0;">
+      <!--Navbar-->
+      <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark" [containerInside]="false">
+
+        <!-- Navbar brand -->
+        <mdb-navbar-brand class="d-flex"><div class="school-badge"></div><a class="navbar-brand ml-3" href="#">Batemulla National School</a></mdb-navbar-brand>
+        <!-- Collapsible content -->
+        <links>
+
+          <!-- Links -->
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" mdbWavesEffect><mdb-icon fas icon="user-graduate"></mdb-icon> Students</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="book"></mdb-icon>Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="envelope"></mdb-icon> Contact<span class="sr-only">(current)</span></a>
+            </li>
+            <!-- Dropdown -->
+            <li class="nav-item dropdown" dropdown>
+              <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                <mdb-icon fas icon="user"></mdb-icon> Profile<span class="caret"></span></a>
+              <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+                <a class="dropdown-item waves-light" mdbWavesEffect href="#">My account</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="#">Log out</a>
+              </div>
+            </li>
+
+          </ul>
+          <!-- Links -->
+        </links>
+        <!-- Collapsible content -->
+
+      </mdb-navbar>
+      <!--/.Navbar-->
+    </div>
+  </div>
+  <div class="row d-flex">
+    <div class="search-section col-12 col-md-8">
+      <div class="row">
+        <div class="col-12">
+          <app-search-result></app-search-result>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-4">
+      <div class="row">
+        <div class="col-12 mt-4 d-flex justify-content-center">
+          <!-- Material form login -->
+          <div class="login-box">
+            <!-- /.login-logo -->
+            <div class="card">
+              <div class="card-body login-card-body">
+                <p class="login-box-msg">Sign in to start your session</p>
+
+                <form #frm="ngForm" [formGroup]="form" (ngSubmit)="submitFormData(username.value,password.value)">
+                  <div class="input-group mb-3">
+                    <mat-form-field appearance="legacy" [style.width.%]="100">
+                      <mat-label>Username</mat-label>
+                      <input formControlName="username" #username matInput placeholder="username" required>
+                      <mat-icon matSuffix>account_circle</mat-icon>
+                      <mat-error *ngIf="formControl.username.invalid">
+                        {{formControl.username.hasError('required')?'username is required':'invalid username'}}
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="input-group mb-3">
+                    <mat-form-field appearance="legacy" [style.width.%]="100">
+                      <mat-label>Password</mat-label>
+                      <input type="password" formControlName="password" #password matInput placeholder="password" required>
+                      <mat-icon matSuffix>lock</mat-icon>
+                      <mat-error *ngIf="formControl.password.invalid">
+                        {{formControl.password.hasError('required')?'password is required':''}}
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="row">
+                    <div class="col-8">
+                      <div class="icheck-primary">
+                        <input type="checkbox" id="remember">
+                        <label for="remember">
+                          Remember Me
+                        </label>
+                      </div>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-4">
+                      <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                    </div>
+                    <!-- /.col -->
+                  </div>
+                </form>
+
+                <div class="social-auth-links text-center mb-3">
+                  <p>- OR -</p>
+                  <a href="#" class="btn btn-block btn-primary">
+                    <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
+                  </a>
+                  <a href="#" class="btn btn-block btn-danger">
+                    <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
+                  </a>
+                </div>
+                <!-- /.social-auth-links -->
+
+                <p class="mb-1">
+                  <a href="forgot-password.html">I forgot my password</a>
+                </p>
+                <p class="mb-0">
+                  <a href="register.html" class="text-center">Register a new membership</a>
+                </p>
+              </div>
+              <!-- /.login-card-body -->
+            </div>
+          </div>
+          <!-- /.login-box -->
+          <!-- Material form login -->
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div style="background-color: orange;height: 100px"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <app-footer></app-footer>
+    </div>
+  </div>
+ </div>
+
+
