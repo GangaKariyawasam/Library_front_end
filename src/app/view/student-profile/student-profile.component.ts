@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {MatAccordion} from '@angular/material/expansion';
 import {UserService} from "../../service/user.service";
+import {CartItem} from "../../model/CartItem";
 
 @Component({
   selector: 'app-student-profile',
@@ -8,12 +10,25 @@ import {UserService} from "../../service/user.service";
 })
 export class StudentProfileComponent implements OnInit {
 
+  cartItems: Array<CartItem> = [];
+
+  @ViewChild(MatAccordion)
+  accordion!: MatAccordion;
+
   constructor(public userService: UserService) { }
 
   ngOnInit(): void {
+    this.loadAllCartItems('S001');
   }
 
-    logOut() {
-        localStorage.removeItem('token');
+  loadAllCartItems(userId: string){
+    for (let i = 0; i<5; i++ ){
+      this.cartItems.push({id: '1',name:'Gamperaliya'
+        ,year:1995,author:'Martin Wickramasinghe',image:'testImage'});
     }
+  }
+
+  logOut() {
+      localStorage.removeItem('token');
+  }
 }

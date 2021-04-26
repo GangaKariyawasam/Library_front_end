@@ -9,6 +9,7 @@ import {AuthorRegistrationComponent} from "../../author-registration/author-regi
 import {AuthorService} from "../../../service/author.service";
 import {ConfigService} from "../../../service/config.service";
 import {SupplierRegistrationComponent} from "./supplier-registration/supplier-registration.component";
+import {RackRegistrationComponent} from "./rack-registration/rack-registration.component";
 
 @Component({
   selector: 'app-book-registration',
@@ -21,6 +22,8 @@ export class BookRegistrationComponent implements OnInit {
   dropdownSettingsSupplier!:IDropdownSettings;
   dropdownSettingsRack!: IDropdownSettings;
   searchedBook = false;
+  medium: string[] = ['Sinhala','English','Tamil'];
+  selectedMedium: any;
 
   constructor(private dialogRef: MatDialogRef<BookRegistrationComponent>
               ,public bookRegistrationService: BookRegistrationService,
@@ -60,6 +63,7 @@ export class BookRegistrationComponent implements OnInit {
     }
     this.getAllAuthors();
     this.getAllSupplier();
+    this.getAllrack();
   }
 
   onItemSelect(item: any) {
@@ -96,7 +100,7 @@ export class BookRegistrationComponent implements OnInit {
   }
 
   openBottomSheetRack() {
-  this.bottomSheet.open()
+  this.bottomSheet.open(RackRegistrationComponent)
   }
   getAllAuthors(): void{
     this.authorService.getAllAuthors().subscribe(value => {
@@ -120,6 +124,17 @@ export class BookRegistrationComponent implements OnInit {
     })
   }
 
+  getAllrack(): void{
+    this.bookRegistrationService.getAllRack().subscribe(value => {
+      this.bookRegistrationService.dropdownListRack = value;
+    },error => {
+      this.configService.toastMixin.fire({
+        icon: 'error',
+        title: 'Failed to load rack'
+      })
+    })
+  }
+
   searchBook(bookId: string) {
     this.searchedBook = !this.searchedBook;
   }
@@ -138,6 +153,9 @@ export class BookRegistrationComponent implements OnInit {
 
   onSelectAllRack(items: any) {
     console.log(items);
+  }
+  test(): void {
+    alert(this.selectedMedium);
   }
 
 }

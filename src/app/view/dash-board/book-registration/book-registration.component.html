@@ -1,4 +1,4 @@
-<div class="mainDiv container-fluid">
+<div class="content-wrapper mainDiv">
     <div class="row">
         <div class="col-12 d-flex justify-content-end">
             <button class="btn-dialog-close d-flex justify-content-center align-items-center" (click)="onFormClose()" tabindex="-1"><mat-icon>clear</mat-icon></button>
@@ -116,6 +116,9 @@
                                                 <mat-form-field [style.width.%]=100>
                                                     <mat-label>Medium</mat-label>
                                                     <input matInput formControlName="medium">
+                                                    <select (click)="test();" matNativeControl name="medium" [(ngModel)]="selectedMedium">
+                                                        <option *ngFor="let medium of medium" [ngValue]="medium">{{medium}}</option>
+                                                    </select>
                                                     <mat-error *ngIf="bookRegistrationService.bookRegisterFormControl.medium.invalid">
                                                         {{bookRegistrationService.bookRegisterFormControl.medium.hasError('required')?'medium is required':''}}
                                                     </mat-error>

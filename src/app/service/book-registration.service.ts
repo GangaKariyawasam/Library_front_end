@@ -63,4 +63,17 @@ export class BookRegistrationService {
   getAllSupplier(): Observable<Array<Supplier>>{
     return this.http.get<Array<Supplier>>('http:localhost:8080/api/v1/suppliers');
   }
+
+  saveRack(rackNo: string,shellNo: string): Observable<Rack>{
+    const body: Rack={
+      id:0,
+      rackNo: rackNo,
+      shellNo: shellNo
+    }
+    return this.http.post<Rack>('http:localhost:8080/api/v1/Racks',body);
+  }
+
+  getAllRack(): Observable<Array<Rack>>{
+    return this.http.get<Array<Rack>>('http:localhost:8080/api/v1/Rack');
+  }
 }

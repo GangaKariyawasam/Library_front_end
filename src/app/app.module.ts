@@ -49,6 +49,7 @@ import { RackRegistrationComponent } from './view/dash-board/book-registration/r
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

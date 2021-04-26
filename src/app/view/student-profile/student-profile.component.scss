@@ -1,0 +1,79 @@
+mdb-navbar-brand a{
+  font-weight: bold;
+  font-size: 28px;
+}
+.school-badge{
+  background-image: url("../../../assets/images/ins badge.jpg");
+  background-size: contain;
+  display: inline-block;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+}
+.cover-photo {
+  background: url("https://images.template.net/wp-content/uploads/2014/11/Natural-Facebook-Cover-Photo.jpg");
+  height: 170px;
+  max-height: 170px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.profile-image {
+  background-color: yellow;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 2px solid white;
+  margin-top: 150px;
+  z-index: 99;
+}
+
+.student-detail {
+  background-color: orange;
+  height: calc(100vh - 170px);
+  position: -webkit-sticky;
+  position: sticky;
+  top: 170px;
+}
+.student-bio{
+  height: max-content;
+  margin-top: 80px;
+}
+
+
+.profile-image-section {
+  height: 170px;
+  max-height: 170px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.profile-name {
+  font-weight: 800;
+  font-size: 24px;
+}
+
+.cart {
+  max-height: 250px;
+  min-height: 250px;
+  overflow: auto;
+}
+
+.cartItem:hover {
+  background-color: #babecc;
+}
+.example-action-buttons {
+  padding-bottom: 20px;
+}
+
+.book-name {
+  font-size: 14px;
+  overflow: hidden;
+  font-weight: bold;
+}
+
+.author-name {
+  font-size: 10px;
+}

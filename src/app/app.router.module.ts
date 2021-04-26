@@ -35,7 +35,7 @@ const routes: Routes = [
   {
     component: StudentProfileComponent,
     path: 'student-profile',
-    canActivate: [StudentProfileGuard]
+    // canActivate: [StudentProfileGuard]
   },
   {path: 'book-registration',component: BookRegistrationComponent},
   {

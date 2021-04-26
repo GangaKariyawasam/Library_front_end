@@ -11,19 +11,21 @@
                     <div class="col-12">
                         <mat-form-field appearance="outline" [style.width.%]=100>
                             <mat-label>Rack No</mat-label>
-                            <input #rackNo (focus)="bookregistration.isTakenRackNo = false" matInput required>
-                            <span *ngIf="bookregistration.isTakenRackNo" [style.color]="'red'">This rack already saved</span>
+                            <input #rackNo matInput required>
                         </mat-form-field>
                     </div>
                     <div class="col-12">
                         <mat-form-field appearance="outline" [style.width.%]=100>
                             <mat-lable>Shell No</mat-lable>
-                            <input matInput #shellNo>
+                            <input matInput #shellNo required>
                         </mat-form-field>
+                    </div>
+                    <div *ngIf="bookService.isTakenRackNo" class="col-12">
+                        <span [style.color]="'red'">This rack is already saved</span>
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <button (click)="saveRack(rackNo.value.trim())" mat-raised-button color="primary" class="btn-block btn-register button" [style.width.%]=30>Save</button>
+                            <button (click)="saveRack(rackNo.value.trim(), shellNo.value.trim())" mat-raised-button color="primary" class="btn-block btn-register button" [style.width.%]=30>Save</button>
                         </div>
                     </div>
                 </form>
