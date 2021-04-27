@@ -83,28 +83,31 @@
         <div class="col-12 cover-photo"style="background-color: #d23f31"></div>
     </div>
     <div class="row">
-        <div class="col-12 col-md-4 d-flex justify-content-center profile-image-section">
-            <div class="profile-image"></div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12 col-md-4 d-flex justify-content-center student-detail">
+        <div class="col-12 col-md-4 student-detail">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center profile-image-section">
+                    <div class="profile-image"></div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-12 d-flex justify-content-center student-bio">
                     <mat-list>
-                        <mat-list-item class="d-flex justify-content-center profile-name">Ganga Kariyawasam</mat-list-item>
+                        <mat-list-item class="d-flex justify-content-center profile-name">{{(currentStaffUser === undefined)?(currentStudentUser.fname+' '+currentStudentUser.lname)
+                            :(currentStaffUser.fname+' '+currentStaffUser.lname)}}</mat-list-item>
                         <mat-divider></mat-divider>
-                        <mat-list-item> Reg No: 15550</mat-list-item>
+                        <mat-list-item>{{(currentStaffUser === undefined)? currentStudentUser.regNo: currentStaffUser.id}}</mat-list-item>
                         <mat-divider></mat-divider>
-                        <mat-list-item>Grade: 9C 2021</mat-list-item>
+                        <mat-list-item *ngIf="currentStudentUser !== undefined">{{currentStudentUser.grades[0].grade}} {{currentStudentUser.grades[0].section}} {{currentStudentUser.grades[0].year}}</mat-list-item>
                         <mat-divider></mat-divider>
-                        <mat-list-item>Gender: Female</mat-list-item>
+                        <mat-list-item>{{(currentStaffUser === undefined)? currentStudentUser.gender: currentStaffUser.gender}}</mat-list-item>
                         <mat-divider></mat-divider>
-                        <mat-list-item>Address: arachchihena,Tittagalla,Ahangama</mat-list-item>
+                        <mat-list-item>{{(currentStaffUser === undefined)
+                            ? (currentStudentUser.streetNo+', '+currentStudentUser.firstStreet+', '+currentStudentUser.secondStreet+', '+currentStudentUser.town)
+                            : (currentStaffUser.streetNo+', '+currentStaffUser.firstStreet+', '+currentStaffUser.secondStreet+', '+currentStaffUser.town)}}</mat-list-item>
                         <mat-divider></mat-divider>
-                        <mat-list-item>Guardian Name: Kumudini</mat-list-item>
+                        <mat-list-item *ngIf="currentStudentUser !== undefined">{{currentStudentUser.guardianName}}</mat-list-item>
                         <mat-divider></mat-divider>
-                        <mat-list-item>Tel No: 0714293588</mat-list-item>
+                        <mat-list-item>{{(currentStaffUser === undefined)? currentStudentUser.contact: currentStaffUser.contact}}</mat-list-item>
                     </mat-list>
                 </div>
             </div>
@@ -113,4 +116,5 @@
             <app-search-result></app-search-result>
         </div>
     </div>
+    <app-footer></app-footer>
 </div>

@@ -12,8 +12,8 @@ mdb-navbar-brand a{
 }
 .cover-photo {
   background: url("https://images.template.net/wp-content/uploads/2014/11/Natural-Facebook-Cover-Photo.jpg");
-  height: 170px;
-  max-height: 170px;
+  height: 100px;
+  max-height: 100px;
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
@@ -25,27 +25,23 @@ mdb-navbar-brand a{
   height: 180px;
   border-radius: 50%;
   border: 2px solid white;
-  margin-top: 150px;
   z-index: 99;
 }
 
 .student-detail {
-  background-color: orange;
-  height: calc(100vh - 170px);
-  position: -webkit-sticky;
+  height: 100vh;
   position: sticky;
-  top: 170px;
+  top: 0;
 }
 .student-bio{
   height: max-content;
-  margin-top: 80px;
+  margin-top: 30px;
 }
 
 
 .profile-image-section {
   height: 170px;
   max-height: 170px;
-  position: absolute;
   top: 0;
   left: 0;
 }

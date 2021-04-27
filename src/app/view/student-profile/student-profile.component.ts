@@ -2,6 +2,9 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatAccordion} from '@angular/material/expansion';
 import {UserService} from "../../service/user.service";
 import {CartItem} from "../../model/CartItem";
+import {Student} from "../../model/Student";
+import {Router} from "@angular/router";
+import {Staff} from "../../model/Staff";
 
 @Component({
   selector: 'app-student-profile',
@@ -10,15 +13,21 @@ import {CartItem} from "../../model/CartItem";
 })
 export class StudentProfileComponent implements OnInit {
 
+  currentStudentUser!: Student;
+  currentStaffUser!: Staff;
+
   cartItems: Array<CartItem> = [];
+  student: Array<Student> = [];
 
   @ViewChild(MatAccordion)
   accordion!: MatAccordion;
 
-  constructor(public userService: UserService) { }
+  constructor(public userService: UserService
+              ,private router: Router) { }
 
   ngOnInit(): void {
     this.loadAllCartItems('S001');
+    this.getCurrentUser();
   }
 
   loadAllCartItems(userId: string){
@@ -28,7 +37,35 @@ export class StudentProfileComponent implements OnInit {
     }
   }
 
+/*  loadStudentProfile(userId: string){
+    this.student.push(id)
+  }*/
+
   logOut() {
       localStorage.removeItem('token');
+  }
+
+  getCurrentUser(): void{
+    var role = localStorage.getItem('role');
+    if(role === 'student'){
+      this.userService.getStudentUser().subscribe(value => {
+        this.currentStudentUser = value;
+      },error => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('role');
+        this.router.navigateByUrl('/main')
+      });
+    }else if(role === 'staff'){
+      this.userService.getStaffUser().subscribe(value => {
+        this.currentStaffUser = value;
+      },error => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('role');
+        this.router.navigateByUrl('/main')
+      })
+    }
+  }
+  isStudentLogged():boolean{
+    return (this.currentStudentUser !== undefined);
   }
 }

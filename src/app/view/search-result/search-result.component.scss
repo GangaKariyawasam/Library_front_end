@@ -18,6 +18,10 @@ mat-card{
   border-radius: 50%;
 }
 .searchSection{
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: white !important;
   font-size: 14px;
 }
 ::ng-deep.mat-form-field-appearance-outline .mat-form-field-outline{
