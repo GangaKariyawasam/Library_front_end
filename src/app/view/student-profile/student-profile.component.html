@@ -12,7 +12,7 @@
                 <links>
 
                     <!-- Links -->
-                    <ul (click)="$event.stopPropagation()" class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
                             <a class="nav-link" mdbWavesEffect><mdb-icon fas icon="user-graduate"></mdb-icon> Students</a>
                         </li>
@@ -24,12 +24,11 @@
                         </li>
                         <!-- Dropdown -->
                         <li class="nav-item dropdown" dropdown>
-                            <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
-                                <mdb-icon fas icon="fas fa-shopping-cart"></mdb-icon> Cart<span class="caret"></span></a>
-                            <div *dropdownMenu class="cart dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
-                                <a >
-                                    <span class="badge badge-danger navbar-badge">{{cartItems.length}}</span>
-                                </a>
+                            <a dropdownToggle mdbWavesEffect type="button" class="nav-link waves-light" mdbWavesEffect>
+                                <mdb-icon fas icon="fas fa-shopping-cart"></mdb-icon> Cart
+                                <span class="badge badge-danger navbar-badge">{{cartItems.length}}</span>
+                            </a>
+                            <div (click)="$event.stopPropagation()" *dropdownMenu class="cart dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
                                 <div class="dropdown-menu-lg dropdown-menu-right">
 
                                     <mat-accordion *ngFor="let cartItem of cartItems">
@@ -86,7 +85,15 @@
         <div class="col-12 col-md-4 student-detail">
             <div class="row">
                 <div class="col-12 d-flex justify-content-center profile-image-section">
-                    <div class="profile-image"></div>
+                    <div class="profilePhoto img-fluid">
+                        <div class="mask">
+                            <div class="delete" (click)="deleteProfileImage()">
+                            </div>
+                        </div>
+                        <div class="edit" (click)="editProfilePhoto()">
+                            <span class=""><mat-icon matSuffix>mode_edit</mat-icon></span>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row">

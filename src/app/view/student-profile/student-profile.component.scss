@@ -19,14 +19,6 @@ mdb-navbar-brand a{
   position: relative;
 }
 
-.profile-image {
-  background-color: yellow;
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  border: 2px solid white;
-  z-index: 99;
-}
 
 .student-detail {
   height: 100vh;
@@ -73,3 +65,114 @@ mdb-navbar-brand a{
 .author-name {
   font-size: 10px;
 }
+
+.profilePhoto{
+  position: relative;
+  width: 150px;
+  height: 150px;
+  background-color: white;
+  border-radius: 50%;
+  border: 1px solid black;
+  background-image: url("../../../assets/images/user-picture.png");
+  background-size: cover;
+
+  .edit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    color: black;
+    right: 30px;
+    bottom: 5px;
+    width: 30px;
+    height: 30px;
+
+    &:hover{
+      cursor: pointer;
+      box-shadow: 5px 5px 15px 0px red;
+      width: 32px;
+      height: 32px;
+      background-color: lightblue;
+    }
+  }
+  .mask{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    opacity: 0;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .delete{
+      width: 75px;
+      height: 75px;
+      border-radius: 50%;
+      background-image: url("../../../assets/images/delete.png");
+      background-size: contain;
+      cursor: pointer;
+    }
+
+    &:hover{
+      opacity: 0.5;
+    }
+  }
+}
+
+
+//.profileImg {
+//  position: relative;
+//  height: 120px;
+//  width: 120px;
+//  background-color: white;
+//  border-radius: 50%;
+//
+//  .edit{
+//    display: flex;
+//    justify-content: center;
+//    align-items: center;
+//    border-radius: 50%;
+//    height:30px;
+//    width: 30px;
+//    background-color:white;
+//    position: absolute;
+//    right: 20px;
+//    bottom:1px;
+//
+//    &:hover{
+//      cursor: pointer;
+//      box-shadow: 2px 2px 5px 0px red;
+//      background-color: #5bc0de;
+//      width: 32px;
+//      height: 32px;
+//    }
+//  }
+//
+//  .mask{
+//    height:120px;
+//    width: 120px;
+//    opacity:0;
+//    border-radius: 50%;
+//    display: flex;
+//    background-color: red;
+//    justify-content: center;
+//    align-items: center;
+//
+//    .delete{
+//      width: 80px;
+//      height:80px;
+//      border-radius:50%;
+//      background-image: url("../../../assets/images/delete.png");
+//      background-size: contain;
+//      cursor: pointer;
+//    }
+//
+//    &:hover{
+//      opacity:0.5;
+//    }
+//  }
+//
+//}

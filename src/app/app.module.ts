@@ -46,6 +46,9 @@ import {AddCartWithLogginComponent} from "./view/search-result/add-cart-with-log
 import {MatTabsModule} from "@angular/material/tabs";
 import {SupplierRegistrationComponent} from "./view/dash-board/book-registration/supplier-registration/supplier-registration.component";
 import { RackRegistrationComponent } from './view/dash-board/book-registration/rack-registration/rack-registration.component';
+import { StepperComponent } from './view/dash-board/stepper/stepper.component';
+import {MatStepperModule} from "@angular/material/stepper";
+import { SettingComponent } from './view/dash-board/setting/setting.component';
 
 
 
@@ -67,6 +70,8 @@ import { RackRegistrationComponent } from './view/dash-board/book-registration/r
     AddCartWithLogginComponent,
     SupplierRegistrationComponent,
     RackRegistrationComponent,
+    StepperComponent,
+    SettingComponent,
   ],
   imports: [
     BrowserModule,
@@ -98,6 +103,7 @@ import { RackRegistrationComponent } from './view/dash-board/book-registration/r
     NgMultiSelectDropDownModule.forRoot(),
     MatBottomSheetModule,
     MatTabsModule,
+    MatStepperModule
   ],
   providers: [BookService,
     {

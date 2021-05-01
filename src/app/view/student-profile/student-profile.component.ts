@@ -17,7 +17,6 @@ export class StudentProfileComponent implements OnInit {
   currentStaffUser!: Staff;
 
   cartItems: Array<CartItem> = [];
-  student: Array<Student> = [];
 
   @ViewChild(MatAccordion)
   accordion!: MatAccordion;
@@ -37,9 +36,13 @@ export class StudentProfileComponent implements OnInit {
     }
   }
 
-/*  loadStudentProfile(userId: string){
-    this.student.push(id)
-  }*/
+  deleteProfileImage(): void {
+    alert('Delete profile image');
+  }
+
+  editProfilePhoto(): void {
+    alert('Edit profile image');
+  }
 
   logOut() {
       localStorage.removeItem('token');
@@ -64,8 +67,5 @@ export class StudentProfileComponent implements OnInit {
         this.router.navigateByUrl('/main')
       })
     }
-  }
-  isStudentLogged():boolean{
-    return (this.currentStudentUser !== undefined);
   }
 }

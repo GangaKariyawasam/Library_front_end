@@ -13,6 +13,8 @@ import {HomeComponent} from "./view/dash-board/home/home.component";
 import {StudentComponent} from "./view/dash-board/student/student.component";
 import { BookRegistrationComponent } from './view/dash-board/book-registration/book-registration.component';
 import {AuthorRegistrationComponent} from "./view/author-registration/author-registration.component";
+import {StepperComponent} from "./view/dash-board/stepper/stepper.component";
+import {SettingComponent} from "./view/dash-board/setting/setting.component";
 const routes: Routes = [
   {
     path: '',
@@ -35,7 +37,16 @@ const routes: Routes = [
   {
     component: StudentProfileComponent,
     path: 'student-profile',
-    // canActivate: [StudentProfileGuard]
+    canActivate: [StudentProfileGuard]
+  },
+  {
+    component: StepperComponent,
+    path: 'stepper',
+    canActivate: [StudentProfileGuard]
+  },
+  {
+    component: SettingComponent,
+    path: 'settings',
   },
   {path: 'book-registration',component: BookRegistrationComponent},
   {
